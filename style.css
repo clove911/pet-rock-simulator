@@ -1,4 +1,33 @@
-@import url('https://googleapis.com');
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://gstatic.com) format('truetype');
+}
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://gstatic.com) format('truetype');
+}
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://gstatic.com) format('truetype');
+}
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://gstatic.com) format('truetype');
+}
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 800;
+  src: url(https://gstatic.com) format('truetype');
+}
 :root{font-family:'Fredoka', 'Quicksand', 'Segoe UI', sans-serif;color:var(--ink);background:var(--page);font-synthesis:none;text-rendering:optimizeLegibility;--radius:24px;--shadow:0 18px 55px rgba(65,43,51,.08)}
 *{box-sizing:border-box}body{margin:0;min-height:100vh;background:var(--page);transition:background .25s,color .25s}
 body[data-theme="pink"]{--page:#fff8fa;--surface:#fff;--ink:#49323b;--muted:#927b84;--line:#f1dfe5;--accent:#d96d91;--accent-dark:#a84468;--soft:#ffe7ef;--gradient:linear-gradient(135deg,#ffe6ed,#f7b9cc 55%,#ee9db8);--ring:#d96d91}
