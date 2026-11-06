@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8dce5">
+  <meta name="description" content="Study, focus, and grow your own little crystal companion.">
+  <title>Pet Rock Simulator — Study • Grow • Evolve</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/rock.svg" type="image/svg+xml">
+</head>
+<body data-theme="pink">
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Pet Rock Simulator home">
+        <span class="brand-mark">✦</span>
+        <span>PET ROCK <small>STUDY • GROW • EVOLVE</small></span>
+      </a>
+      <div class="top-actions">
+        <label class="theme-picker">
+          <span class="sr-only">Choose theme</span>
+          <select id="themeSelect" aria-label="Choose colour mode">
+            <option value="pink">🌸 Pink mode</option>
+            <option value="blue">🩵 Blue mode</option>
+            <option value="yellow">🍋 Yellow mode</option>
+          </select>
+        </label>
+        <button id="accountButton" class="button button-quiet">Log in</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="welcomePanel" class="welcome-panel panel">
+        <div>
+          <p class="eyebrow">A tiny companion for your big goals</p>
+          <h1>Every focused minute<br><span>starts something.</span></h1>
+          <p class="muted welcome-copy">Start a timer whenever you like. Create a free account to save your progress and help your rock evolve into a crystal.</p>
+          <div class="welcome-actions">
+            <button id="guestStartButton" class="button button-primary">Start as a guest</button>
+            <button id="createAccountButton" class="button button-secondary">Create an account</button>
+          </div>
+          <p class="guest-warning"><strong>Guest mode:</strong> You can use the timer without an account, but your progress won't be saved and your rock won't grow.</p>
+        </div>
+        <div class="welcome-art" aria-hidden="true">
+          <div class="sparkle sparkle-one">✦</div><div class="sparkle sparkle-two">✧</div>
+          <img src="assets/rock.svg" alt="">
+          <span class="art-caption">your little rock awaits</span>
+        </div>
+      </section>
+
+      <section id="dashboard" class="dashboard hidden">
+        <div class="dashboard-heading">
+          <div>
+            <p class="eyebrow" id="helloLabel">YOUR LITTLE CORNER</p>
+            <h1 id="dashboardTitle">Let's grow something.</h1>
+          </div>
+          <span id="saveStatus" class="save-status">Guest session</span>
+        </div>
+
+        <div class="main-grid">
+          <section class="panel rock-panel">
+            <div class="section-top">
+              <div><p class="eyebrow">YOUR COMPANION</p><h2 id="rockStageName">Little Pebble</h2></div>
+              <span id="stageCounter" class="stage-pill">Stage 1 / 5</span>
+            </div>
+            <div class="rock-display">
+              <div class="rock-glow"></div>
+              <img id="rockImage" src="assets/rock.svg" alt="Your growing rock">
+              <div class="rock-sparkle">✧</div>
+            </div>
+            <p id="rockDescription" class="muted center">A smooth little pebble, ready for its journey.</p>
+            <div class="growth-label"><span>Growth</span><strong id="growthText">0 / 4 sessions</strong></div>
+            <div class="progress-track"><div id="growthBar" class="progress-fill"></div></div>
+            <p id="growthHint" class="tiny muted center">Complete focused sessions while signed in to grow your rock.</p>
+          </section>
+
+          <section class="panel timer-panel">
+            <div class="section-top">
+              <div><p class="eyebrow">FOCUS ROOM</p><h2>Time to focus</h2></div>
+              <span id="modeLabel" class="stage-pill">Study time</span>
+            </div>
+            <div class="timer-tabs" role="group" aria-label="Timer length">
+              <button class="timer-tab active" data-preset="25">25 / 5</button>
+              <button class="timer-tab" data-preset="50">50 / 10</button>
+            </div>
+            <div class="timer-face">
+              <div class="timer-ring"><svg viewBox="0 0 220 220" aria-hidden="true"><circle class="ring-bg" cx="110" cy="110" r="96"></circle><circle id="timerProgress" class="ring-progress" cx="110" cy="110" r="96"></circle></svg>
+                <div class="timer-readout"><strong id="timerDisplay">25:00</strong><span id="timerSubtext">READY WHEN YOU ARE</span></div>
+              </div>
+            </div>
+            <div class="timer-actions">
+              <button id="startPauseButton" class="button button-primary">Start studying</button>
+              <button id="resetButton" class="button button-secondary">Reset</button>
+            </div>
+            <p id="timerMessage" class="tiny muted center">Choose a timer and begin. You’ve got this.</p>
+            <div class="break-note"><span>☕</span><span id="breakDescription">After 25 minutes, take a 5-minute break.</span></div>
+          </section>
+        </div>
+
+        <section class="stats-grid">
+          <article class="panel stat-card"><span class="stat-icon">⏱</span><span class="stat-label">FOCUS MINUTES</span><strong id="focusMinutes">0</strong></article>
+          <article class="panel stat-card"><span class="stat-icon">✦</span><span class="stat-label">COMPLETED SESSIONS</span><strong id="completedSessions">0</strong></article>
+          <article class="panel stat-card"><span class="stat-icon">◇</span><span class="stat-label">CURRENT STAGE</span><strong id="currentStageStat">1 / 5</strong></article>
+        </section>
+        <p id="guestDashboardNotice" class="guest-warning hidden"><strong>Guest mode:</strong> Your timer works, but progress is not saved and your rock will not grow. <button id="guestCreateAccount" class="inline-link">Create an account</button> to keep your journey.</p>
+      </section>
+    </main>
+
+    <footer><span>Made for focused little steps.</span><span>Pet Rock Simulator <b>✦</b></span></footer>
+  </div>
+
+  <div id="authModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="modal-card panel">
+      <button id="closeAuth" class="modal-close" aria-label="Close">×</button>
+      <p class="eyebrow">YOUR PROGRESS, KEPT SAFE</p>
+      <h2 id="authTitle">Welcome back</h2>
+      <p id="authDescription" class="muted">Log in to continue growing your crystal.</p>
+      <form id="authForm">
+        <label>Email address<input id="emailInput" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+        <label>Password<input id="passwordInput" type="password" autocomplete="current-password" minlength="6" placeholder="At least 6 characters" required></label>
+        <label id="nameField" class="hidden">Display name<input id="nameInput" type="text" maxlength="24" placeholder="What should we call you?"></label>
+        <button id="authSubmit" class="button button-primary full-width" type="submit">Log in</button>
+      </form>
+      <p id="authError" class="form-message" role="status"></p>
+      <p class="auth-switch"><span id="switchPrompt">New here?</span> <button id="switchAuthMode" class="inline-link">Create an account</button></p>
+      <p class="tiny muted">Your account stores your rock stage, completed sessions, and focus time in Firebase.</p>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
